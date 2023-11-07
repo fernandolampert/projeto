@@ -1,0 +1,175 @@
+* {
+  margin: 0; /*remove toda a margem da página */
+  padding: 0; /*remove todo o preenchimento */
+  box-sizing: border-box; /*a medida do tamanho da caixa pra que seja medida através da borda */
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255,255,255,0.5);
+  --surface-color: rgba(255, 255, 255, 0.5);  
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.02);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  background: var(--bg-url) top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  /* color: white;  */
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /* border: 1px solid red; */
+  margin: auto;
+  margin-top: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px; /*feito o preenchimento em toda a caixa. */
+}
+
+#profile img {
+  /* display: block; */
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  width: 64px;
+  height: 24px;
+  position: relative;
+
+  margin: 4px auto;  /*alinhamento da caixa com botão*/
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;  /*sobreposição de camadas*/
+  top: 50%;  /*alinha o botão com 50% dentro da caixa*/
+  left: 0;
+  z-index: 1;  /*andar de sobreposição do botão*/
+  transform: translateY(-50%);  /*deixa o botão com 50% fora da caixa*/
+  
+  /* background-image: url(./assets/moon-stars.svg);  */
+  /* background-repeat: no-repeat;  */
+  /* background-position: top center;  */
+  /* background-size: cover;  */
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+
+/* links */
+ul {
+  list-style: none; /*remove a seleção dos itens. Os pontinhos no início da linha*/
+  display: flex; /*deixa a seleção em colunas */
+  flex-direction: column; /*deixa a seleção um abaixo do outro*/
+  gap: 8px; /*deixa espaço entre as linhas*/
+  padding: 24px 0;
+}
+ul li a {
+  /* border: 1px solid red; */
+  display: flex; /*deixa a seleção em colunas */
+  justify-content: center; /*centraliza o texto*/
+  align-items: center; /*deixa o texto alinhado acima, não mais no centro*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*arredondamento de borda*/
+  backdrop-filter: blur(4px);
+
+  text-decoration: none; /*remove o sublinhado do texto*/
+  font-weight: 500;
+
+  transition: background 0.2s;  /*define tempo de transição das cores no menu.*/
+}
+
+/* pseudo-selector*/
+ul li a:hover {
+  /*vai aplicar funções ao passar o mouse por cima*/
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+#social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /*espaçamento dos ícones*/
+  /* padding: 24px 0; /*distância da borda dos ícones*/
+  font-size: 24px; /*tamanho dos ícones*/
+
+}
+
+#social-links a { /*alinhando os ícones das mídias sociais*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+#social-links a:hover{
+  background: var(--highlight-color);
+    border-radius: 50%;
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  /* color: red; */
+}
+
