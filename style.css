@@ -42,7 +42,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;  /* definir limite de largura para vários dispositivos. Grandes ou pequenos */
   /* border: 1px solid red; */
   margin: auto;
   margin-top: 56px auto 0px;
@@ -87,6 +88,8 @@ body * {
   left: 0;
   z-index: 1;  /*andar de sobreposição do botão*/
   transform: translateY(-50%);  /*deixa o botão com 50% fora da caixa*/
+
+  animation: slide-back 0.2s;
   
   /* background-image: url(./assets/moon-stars.svg);  */
   /* background-repeat: no-repeat;  */
@@ -95,9 +98,14 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  /* right: 0;
+  left: initial;  */
+  animation: slide-in 0.4s forwards;  /* forwards indica que o botão precisa voltar deslizando*/
 }
+
+/* #switch button:hover {   /* sombra ao passar o mouse por cima
+  outline: 8px solid var(--highlight-color);
+}  */
 
 #switch span {
   display: block;
@@ -173,3 +181,24 @@ footer {
   /* color: red; */
 }
 
+/* media queries */
+/* adapta a imagem de fundo para o tamanho da mídia */
+
+/* animações no botão */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
